@@ -17,17 +17,17 @@ class repres {
 public:
     int pop_size;
     int dim;
-    FT* alpha;
-    ZT* length;
+    unique_ptr<FT[]> alpha;
+    unique_ptr<ZT[]> length;
     ZT totLength;
-    Individual<ZT,FT>* population;
-    preProcessing<ZT,FT>* preprocess;
-    ZT* decode(bool *chromosome);
+    unique_ptr<Individual<ZT,FT>[]> population;
+    unique_ptr<preProcessing<ZT,FT>> preprocess;
+    unique_ptr<ZT[]>  decode(bool *chromosome);
     FT get_norm(ZT* vect, int dim);
     FT get_norm(FT* vect, int dim);
-    bool* encode(ZT* y, ZT totalLength);
-    void initialise();
+    unique_ptr<bool[]>  encode(ZT* y, ZT totalLength);
+    void initialise(Individual<ZT,FT>v0);
     repres(const char *input_filename,int flags_bkz,int flags_gso,int prec,FloatType float_type);
-    ZT **get_B();
-    FT** get_mu();
+    unique_ptr<ZT[]>* get_B();
+    unique_ptr<FT[]>* get_mu();
 };

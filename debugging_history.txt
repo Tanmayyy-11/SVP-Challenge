@@ -1,0 +1,109 @@
+
+cout<<"f ";
+printvec(f);
+cout<<"g ";
+printvec(g); 
+ 
+           cout<<"end of round"<<endl;
+            cout<<"f ";
+            printvec(f);
+            cout<<"g ";
+            printvec(g);
+            cout<<"b ";
+            printvec(b);
+            cout<<"c ";
+            printvec(c);
+
+// for(int i=0;i<dim;i++){
+        //     cout<<preprocess->B[0][i]<<" ";
+        // }
+        // cout<<endl;
+
+
+ cout<<"alphas"<<endl;
+    for(int i=0;i<dim;i++){
+        cout<<alpha[i]<<" ";
+    }
+    cout<<endl;        
+
+
+
+FT norm = 0.0;
+    for (int i = 0; i < dim; ++i) {
+        FT use;
+        use.set_z(vect[i]);
+        norm += use * use;
+    }
+    cout<<"vector norm. "<<sqrt(norm)<<endl;
+    norm = 0.0;
+    for (int i = 0; i < dim; ++i) {
+        FT use;
+        use.set_z(old_B.get()[0][i]);
+        // FT use=old_B.get()[0][i];
+        norm += use * use;
+    }
+
+    cout<<"first vector "<<sqrt(norm)<<endl;    
+
+
+ cout<<"in preprorcessing"<<endl;
+    // writeMatrixToFile(Bstar_mat, "bstar_print");
+    for(int i=0;i<dim;i++){
+        cout<<Bstar[0].get()[i]<<" ";
+    }
+    cout<<endl;    
+
+
+ // for(int i=0;i<dim;i++){
+    //     cout<<B[0][i]<<" ";
+    // }
+    // cout<<endl;
+
+
+cout<<"count of number of zero rows in A"<<count<<endl;
+    cout<<"index of all zero row in A"<<zero_row<<endl;
+
+    // if(zero_row == -1){
+    //     cout<<"Error loading new basis"<<endl;
+    // }    
+
+
+// writeMatrixToFile(A,"initial_A.txt");
+        // ZZ_mat<mpz_t>test_A(dim+1,dim);
+        // for(int i=0;i<dim;i++){
+        //     for(int j=0;j<dim;j++){
+        //         test_A[i][j] = A[i][j];
+        //     }
+        // }
+        // for(int i=0;i<dim;i++){
+        //     test_A[dim][i] = A[dim-1][i];
+        // }
+        // writeMatrixToFile(A,"initial_testA.txt");
+
+
+ cout<<"first guy in population"<<endl;
+        for(int i=0;i<dim;i++){
+            cout<<population[0].x.get()[i]<<" ";
+        }
+        cout<<endl;            
+
+// for(int i=0;i<popObj->totLength.get_d();i++){
+        //     cout<<a.get()[i]<<" ";
+        // }
+        // cout<<endl;
+        // cout<<"final chromosome"<<endl;
+        unique_ptr<ZT[]> tempa = popObj->decode(a.get());        
+
+
+
+ // cout<<"initial chromosome"<<endl;
+        // for(int i=0;i<popObj->dim;i++){
+        //     cout<<popObj->population[z].y.get()[i]<<" ";
+        // }
+        // cout<<endl;        
+
+
+ // delete[]a;
+        // delete[]b;
+        // delete[]crossed;
+        // delete[]mutated;        

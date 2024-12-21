@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <cstring>
+#include <memory>
 #include<random>
 #include "test_utils.h"
 using namespace std;
@@ -15,8 +16,9 @@ template<class ZT,class FT>class preProcessing
         int dim;
         Matrix<ZT>U;
         Matrix<ZT>UT;
-        ZT** B;
-        FT** Bstar;
-        FT** mu;
+        std::unique_ptr<std::unique_ptr<ZT[]>[]> B;
+        std::unique_ptr<std::unique_ptr<FT[]>[]> Bstar;
+        std::unique_ptr<std::unique_ptr<FT[]>[]> mu;
         preProcessing(const char *input_filename,int flags_bkz,int flags_gso,int prec,FloatType float_type);
+        preProcessing(unique_ptr<std::unique_ptr<ZT[]>[]>& old_B,unique_ptr<ZT[]>& vect,int dimension,int flags_gso);
 };
